@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+  User List
+{% endblock title %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>{{ object.username }}</h2>
+        {% if object.name %}<p>{{ object.name }}</p>{% endif %}
+
+        <table>
+          <thead>
+            <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            </tr>
+          </thead>
+        <tbody>
+          {% for user in object_list %}
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <!-- Action buttons -->
+                <a class="btn btn-primary" role="button">Edit</a>
+                <!-- End Action buttons -->
+              </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
